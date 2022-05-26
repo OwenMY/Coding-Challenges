@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/OwenMY/Coding-Challenges/issues"
   },
-  "homepage": "https://github.com/OwenMY/Coding-Challenges#readme"
+  "homepage": "https://github.com/OwenMY/Coding-Challenges#readme",
+  "dependencies": {
+    "yarn": "^1.22.18"
+  },
+  "devDependencies": {
+    "jest": "^28.1.0"
+  }
 }
