@@ -1,3 +1,6 @@
-const config = {
-  verbose: true,
+module.exports = {
+  coverageProvider: "v8",
+  testPathIgnorePatterns: [
+    "/ArchiveTests/"
+  ],
 };
