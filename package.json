@@ -1,0 +1,22 @@
+{
+  "name": "coding-challenges",
+  "version": "1.0.0",
+  "description": "A repository containing coding challenges other than LeetCode.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OwenMY/Coding-Challenges.git"
+  },
+  "keywords": [
+    "Challenges"
+  ],
+  "author": "Owen Yoshishige",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OwenMY/Coding-Challenges/issues"
+  },
+  "homepage": "https://github.com/OwenMY/Coding-Challenges#readme"
+}
