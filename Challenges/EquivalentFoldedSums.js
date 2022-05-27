@@ -19,11 +19,10 @@ Can you find this range?
 
 To calculate this range, think about the maximum amount by which you can increment and decrement the sum of a particular pair by changing only one of the two values.
 
-Suppose you know this range, let it be [lo, hi]. Can you think of an optimal approach to find the value that requires the least number of changes to make all pair sums equal to this value? Think in terms of Prefix Sums.
-*/
+Suppose you know this range, let it be [lo, hi]. Can you think of an optimal approach to find the value that requires the least number of changes to make all pair sums equal to this value? Think in terms of Prefix Sums
 
-//Sum has to land in a particular range
-//
+https://binarysearch.com/problems/Equivalent-Folded-Sums
+*/
 
 const equivalentFoldedSums = (nums) => {
   if (nums.length === 2) {
@@ -60,6 +59,12 @@ const equivalentFoldedSums = (nums) => {
       }
     }
 
+    for (let i = lowRange[0]; i < lowRange[1]; i++) {
+      if (arr.every((numSet) => i >= numSet[0] && i <= numSet[1] ? true : false)) {
+        return i;
+      }
+    }
+
     return Math.max(...lowNumbers);
   };
 
@@ -71,6 +76,12 @@ const equivalentFoldedSums = (nums) => {
 
     for (let i = highRange[0]; i < highRange[1]; i++) {
       if (arr.every((numSet) => numSet.includes(i))) {
+        return i;
+      }
+    }
+
+    for (let i = highRange[0]; i < highRange[1]; i++) {
+      if (arr.every((numSet) => i >= numSet[0] && i <= numSet[1] ? true : false)) {
         return i;
       }
     }
