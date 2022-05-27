@@ -14,8 +14,27 @@ Output
 1
 */
 
-const equivalentFoldedSums = () => {
-  //To-do
+const equivalentFoldedSums = (nums) => {
+  if (nums.length === 2) {
+    return 0;
+  }
+
+  let standard = nums[0] + nums[nums.length - 1];
+  let minimumOps = 0;
+
+  for (let i = 1; i < nums.length / 2; i++) {
+    if (nums[i] + nums[nums.length - 1 - i] !== standard) {
+      if (nums[i] !== 0) {
+        nums[i]--;
+      } else if (nums[nums.length - 1 - i] !== 0) {
+        nums[nums.length - 1 - i]--;
+      }
+      i-= 2;
+      minimumOps++;
+    }
+  }
+
+  return minimumOps;
 };
 
 module.exports = equivalentFoldedSums;
