@@ -1,4 +1,4 @@
-const equivalentFoldedSums = require('./../Challenges/EquivalentFoldedSums.js');
+const equivalentFoldedSums = require('./../BinarySearch/EquivalentFoldedSums.js');
 
 describe('Equivalent Folded Sums', () => {
   test('Should return correct solution', () => {
