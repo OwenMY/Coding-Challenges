@@ -7,3 +7,5 @@ Create a function that takes a string and returns the string ciphered with Rot13
 function rot13(message){
   //your code here
 }
+
+module.exports = rot13;
