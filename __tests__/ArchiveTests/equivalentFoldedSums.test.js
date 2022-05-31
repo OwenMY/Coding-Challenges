@@ -14,6 +14,7 @@ describe('Equivalent Folded Sums', () => {
     expect(equivalentFoldedSums([1, 2, 3, 2])).toBe(1);
     expect(equivalentFoldedSums([1, 2, 4, 3])).toBe(1);
     expect(equivalentFoldedSums([1, 4, 2, 3])).toBe(1);
+    expect(equivalentFoldedSums([1, 14, 8, 8, 2, 1])).toBe(3);
   });
 
   test('Should return 0 when given an array with 2 elements', () => {

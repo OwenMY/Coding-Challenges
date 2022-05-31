@@ -4,8 +4,31 @@ ROT13 is a simple letter substitution cipher that replaces a letter with the let
 Create a function that takes a string and returns the string ciphered with Rot13. If there are numbers or special characters included in the string, they should be returned as they are. Only letters from the latin/english alphabet should be shifted, like in the original Rot13 "implementation".
 */
 
-function rot13(message){
-  //your code here
-}
+function rot13(message) {
+  let result = [];
+
+  for (let char of message) {
+    let codeSum = char.charCodeAt(0) + 13;
+    if (char.charCodeAt(0) >= 97 && char.charCodeAt(0) <= 122) {
+      if (codeSum > 122) {
+        let newChar = codeSum - 122 + 96;
+        result.push(String.fromCharCode(newChar));
+      } else {
+        result.push(String.fromCharCode(codeSum));
+      }
+    } else if (char.charCodeAt(0) >= 65 && char.charCodeAt(0) <= 90) {
+      if (codeSum > 90) {
+        let newChar = codeSum - 90 + 64;
+        result.push(String.fromCharCode(newChar));
+      } else {
+        result.push(String.fromCharCode(codeSum));
+      }
+    } else {
+      result.push(char);
+    }
+  }
+
+  return result.join('');
+};
 
 module.exports = rot13;
