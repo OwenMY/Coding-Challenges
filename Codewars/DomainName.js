@@ -7,22 +7,13 @@ Write a function that when given a URL as a string, parses out just the domain n
 
 */
 
-//I - Take in a string
-//O - the domain name as a string
-//C - none
-//E - no http/https, top-level domains other than ".com", sub domains, Sub directories
-
-//Psuedocode
-/*
-create URL object with input string
-
-return domain
-*/
+const regexScheme = /\w+\:\/\//g;
+const regexWWW = /www\./g;
 
 const domainName = (url) => {
-  let domain = new URL(url);
-  console.log(domain)
-  return domain
+  let domain = url.replace(regexScheme, '');
+  domain = domain.replace(regexWWW, '');
+  return domain.slice(0, domain.indexOf('.'));
 };
 
 module.exports = domainName;
