@@ -28,7 +28,33 @@ const linkNodes = (values) => {
 };
 
 const reverseLinkedList = (head) => {
-  //To-do
+  if (head === null) {
+    return null;
+  }
+
+  if (head.next === null) {
+    return head;
+  }
+
+  let result = null;
+  let currentNode = head;
+  let previousNode = null;
+  let nextNode = null;
+
+  while (result === null) {
+    let endOfList = currentNode.next === null ? true : false;
+    nextNode = currentNode.next;
+    currentNode.next =  previousNode;
+    previousNode = currentNode;
+
+    if (endOfList) {
+      result = currentNode;
+    } else {
+      currentNode = nextNode;
+    }
+  }
+
+  return result;
 };
 
 let linkedList1 = new LinkedList([1, 2, 3, 4, 5]);
