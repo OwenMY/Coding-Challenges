@@ -1,4 +1,4 @@
-const calcDroneMinEnergy = () => {
+const calcDroneMinEnergy = (route) => {
   //To-Do
 };
 

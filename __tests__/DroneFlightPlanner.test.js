@@ -2,7 +2,7 @@ import calcDroneMinEnergy from './../Pramp/DroneFlightPlanner.js';
 
 describe('Drone Flight Planner', () => {
   test('Should return 5', () => {
-    let route = [
+    let route1 = [
       [0,   2, 10],
       [3,   5,  0],
       [9,  20,  6],
@@ -10,6 +10,6 @@ describe('Drone Flight Planner', () => {
       [10, 10,  8]
     ];
 
-    expect(calcDroneMinEnergy(route)).toBe(5);
+    expect(calcDroneMinEnergy(route1)).toBe(5);
   });
 });
