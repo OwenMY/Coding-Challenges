@@ -25,92 +25,20 @@ https://binarysearch.com/problems/Equivalent-Folded-Sums
 */
 
 const equivalentFoldedSums = (nums) => {
-  if (nums.length === 2) {
-    return 0;
-  }
+  if (nums.length === 2) return 0;
 
-  let lowestNum = Math.min(...nums);
-  let highestNum = Math.max(...nums);
-
-  let sums = [];
-  let lowCandidates = [];
-  let highCandidates = [];
+  let foldedSums = [];
 
   for (let i = 0; i < nums.length / 2; i++) {
-    let sum = nums[i] + nums[nums.length - 1 - i];
-    lowCandidates.push([nums[i] + lowestNum, nums[nums.length - 1 - i] + lowestNum]);
-    highCandidates.push([nums[i] + highestNum, nums[nums.length - 1 - i] + highestNum]);
-    sums.push(sum);
+    foldedSums.push(nums[i] + nums[nums.length - 1 - i]);
   }
 
-  if (sums.every((sum) => sum === sums[0])) {
-    return 0;
-  }
+  foldedSums.sort((a, b) => a - b);
 
-  const getLeastCommonFactor = (arr) => {
-    let lowNumbers = [];
+  let min = foldedSums[0];
+  let max = foldedSums.at(-1);
 
-    arr.forEach((numSet) => lowNumbers.push(...numSet));
-    let lowRange = [Math.min(...lowNumbers), Math.max(...lowNumbers)];
-
-    for (let i = lowRange[0]; i < lowRange[1]; i++) {
-      if (arr.every((numSet) => numSet.includes(i))) {
-        return i;
-      }
-    }
-
-    for (let i = lowRange[0]; i < lowRange[1]; i++) {
-      if (arr.every((numSet) => i >= numSet[0] && i <= numSet[1] ? true : false)) {
-        return i;
-      }
-    }
-
-    return Math.max(...lowNumbers);
-  };
-
-  const getGreatestCommonFactor = (arr) => {
-    let highNumbers = [];
-
-    arr.forEach((numSet) => highNumbers.push(...numSet));
-    let highRange = [Math.min(...highNumbers), Math.max(...highNumbers)];
-
-    for (let i = highRange[0]; i < highRange[1]; i++) {
-      if (arr.every((numSet) => numSet.includes(i))) {
-        return i;
-      }
-    }
-
-    for (let i = highRange[0]; i < highRange[1]; i++) {
-      if (arr.every((numSet) => i >= numSet[0] && i <= numSet[1] ? true : false)) {
-        return i;
-      }
-    }
-
-    return Math.min(...highNumbers);
-  };
-
-  let range = [getLeastCommonFactor(lowCandidates), getGreatestCommonFactor(highCandidates)];
-  let standard = null;
-
-  for (let sum of sums) {
-    if (sum >= range[0] && sum <= range[1]) {
-      standard = sum;
-      break;
-    }
-  }
-
-  let ops = 0;
-  if (standard === null) {
-    standard = range[0];
-  }
-
-  for (let sum of sums) {
-    if (standard !== sum) {
-      ops++;
-    }
-  }
-
-  return ops;
+  return Math.round(max - min);
 };
 
 module.exports = equivalentFoldedSums;
